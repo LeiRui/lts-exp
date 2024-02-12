@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# generate HOME_PATH workspace by running prepare.sh first
+# generate HOME_PATH workspace by running prepare-all.sh first
 HOME_PATH=/data/v4
 
 # dataset basic info
 DATASET=BallSpeed
 DEVICE="root.game"
 MEASUREMENT="s6"
-DATA_TYPE=long # long or double
+DATA_TYPE=long
 TIMESTAMP_PRECISION=ns
 DATA_MIN_TIME=0  # in the corresponding timestamp precision
 DATA_MAX_TIME=617426057626  # in the corresponding timestamp precision
@@ -86,8 +86,7 @@ mkdir ablation
 
 # attention: case sensitive
 pos=0
-# "ILTS"1 "ILTS"2 "ILTS"3 "ILTS"4 "ILTS"5 "M4"6 "LTTB"7 "MinMaxLTTB"8 "MinMax"9
-approachArray=("ILTS" "ILTS" "ILTS" "ILTS" "ILTS" "M4" "LTTB" "MinMaxLTTB" "MinMax"); # large data, no UDF, too slow
+approachArray=("ILTS" "ILTS" "ILTS" "ILTS" "ILTS" "M4" "LTTB" "MinMaxLTTB" "MinMax");
 for approach in ${approachArray[@]};
 do
 echo "[[[[[[[[[[[[[$approach]]]]]]]]]]]]]"

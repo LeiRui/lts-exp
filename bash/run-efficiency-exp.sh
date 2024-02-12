@@ -1,18 +1,18 @@
 #!/bin/bash
 
-# generate HOME_PATH workspace by running prepare.sh first
+# generate HOME_PATH workspace by running prepare-all.sh first
 HOME_PATH=/data/v4
 
 # dataset basic info
 DATASET=BallSpeed
 DEVICE="root.game"
 MEASUREMENT="s6"
-DATA_TYPE=long # long or double
+DATA_TYPE=long
 TIMESTAMP_PRECISION=ns
 DATA_MIN_TIME=0  # in the corresponding timestamp precision
 DATA_MAX_TIME=617426057626  # in the corresponding timestamp precision
 TOTAL_POINT_NUMBER=1200000
-let TOTAL_TIME_RANGE=${DATA_MAX_TIME}-${DATA_MIN_TIME} # check what if not +1 what the difference
+let TOTAL_TIME_RANGE=${DATA_MAX_TIME}-${DATA_MIN_TIME}
 VALUE_ENCODING=PLAIN
 TIME_ENCODING=PLAIN
 COMPRESSOR=UNCOMPRESSED
@@ -91,7 +91,7 @@ cd $HOME_PATH/${DATASET}_testspace/O_10_D_0_0
 mkdir vary_m
 
 # attention: case sensitive
-approachArray=("ILTS" "M4" "LTTB" "MinMaxLTTB" "MinMax"); # large data, no UDF, too slow
+approachArray=("ILTS" "M4" "LTTB" "MinMaxLTTB" "MinMax");
 for approach in ${approachArray[@]};
 do
 echo "[[[[[[[[[[[[[$approach]]]]]]]]]]]]]"
