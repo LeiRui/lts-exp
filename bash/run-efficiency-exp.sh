@@ -4,7 +4,7 @@
 HOME_PATH=/data/v4
 
 # dataset basic info
-DATASET=BallSpeed # BallSpeed KOB MF03 RcvTime
+DATASET=BallSpeed
 DEVICE="root.game"
 MEASUREMENT="s6"
 DATA_TYPE=long # long or double
@@ -105,7 +105,6 @@ cp $HOME_PATH/ProcessResult.* .
 $HOME_PATH/tool.sh enable_Tri ${approach} $HOME_PATH/iotdb-server-0.12.4/conf/iotdb-engine.properties
 
 i=1
-# 控制m是4的整数倍
 for m in 320 360 400 440 480 520 560 600 640
 do
   echo "[[[[[[[[[[[[[m=$m]]]]]]]]]]]]]"
@@ -134,16 +133,7 @@ done
 
 done;
 
-# 注意要改编号还有csv文件名！
-#cd $HOME_PATH/${DATASET}_testspace/O_10_D_0_0/vary_m
-#(cut -f 2 -d "," sumResult_MinMax.csv) > tmp1.csv
-#(cut -f 2 -d "," sumResult_M4.csv| paste -d, tmp1.csv -) > tmp2.csv
-#(cut -f 2 -d "," sumResult_LTTB.csv| paste -d, tmp2.csv -) > tmp3.csv
-#(cut -f 2 -d "," sumResult_MinMaxLTTB.csv| paste -d, tmp3.csv -) > tmp4.csv
-#(cut -f 2 -d "," sumResult_ILTS.csv| paste -d, tmp4.csv -) > tmp5.csv
-#echo "MinMax(ns),M4(ns),LTTB(ns),MinMaxLTTB(ns),ILTS(ns)" > $HOME_PATH/res-${DATASET}-efficiency.csv
-#sed '1d' tmp5.csv >> $HOME_PATH/res-${DATASET}-efficiency.csv
-#rm tmp*.csv
+
 cd $HOME_PATH/${DATASET}_testspace/O_10_D_0_0/vary_m
 (cut -f 2,11,12,28,35 -d "," sumResult_MinMax.csv) > tmp1.csv
 (cut -f 2,11,12,28,35 -d "," sumResult_M4.csv| paste -d, tmp1.csv -) > tmp2.csv

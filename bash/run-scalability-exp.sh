@@ -4,7 +4,7 @@
 HOME_PATH=/data/v4
 
 # dataset basic info
-DATASET=BallSpeed # BallSpeed KOB MF03 RcvTime
+DATASET=BallSpeed
 DEVICE="root.game"
 MEASUREMENT="s6"
 DATA_TYPE=long # long or double
@@ -22,7 +22,6 @@ IOTDB_CHUNK_POINT_SIZE=100
 
 #FIX_QUERY_RANGE=$TOTAL_TIME_RANGE
 FIX_M=480
-# 控制m是4的整数倍
 
 #hasHeader=false # default
 
@@ -105,16 +104,7 @@ cp $HOME_PATH/ProcessResult.* .
 # attention: case sensitive enable_Tri
 $HOME_PATH/tool.sh enable_Tri ${approach} $HOME_PATH/iotdb-server-0.12.4/conf/iotdb-engine.properties
 
-#if [ $approach == "minmax_lsm" ]
-#then
-#  $HOME_PATH/tool.sh enable_tri ${approach} $HOME_PATH/iotdb-server-0.12.4/conf/iotdb-engine.properties
-#else
-#  cp ../../iotdb-engine-enableCPV.properties $HOME_PATH/iotdb-server-0.12.4/conf/iotdb-engine.properties
-#fi
-
 i=1
-# 控制m是4的整数倍
-#for m in 100 # 200 400 # 600 1200 2000 3000 4000
 for per in 10 20 30 40 50 60 70 80 90 100
 do
   range=$((echo scale=0 ; echo ${per}*${TOTAL_TIME_RANGE}/100) | bc )
@@ -144,18 +134,6 @@ done
 
 done;
 
-
-# approachArray=("ILTS" "M4" "LTTB" "MinMaxLTTB" "MinMax");
-# 注意要改编号还有csv文件名！
-#cd $HOME_PATH/${DATASET}_testspace/O_10_D_0_0/vary_range
-#(cut -f 2 -d "," sumResult_MinMax.csv) > tmp1.csv
-#(cut -f 2 -d "," sumResult_M4.csv| paste -d, tmp1.csv -) > tmp2.csv
-#(cut -f 2 -d "," sumResult_LTTB.csv| paste -d, tmp2.csv -) > tmp3.csv
-#(cut -f 2 -d "," sumResult_MinMaxLTTB.csv| paste -d, tmp3.csv -) > tmp4.csv
-#(cut -f 2 -d "," sumResult_ILTS.csv| paste -d, tmp4.csv -) > tmp5.csv
-#echo "MinMax(ns),M4(ns),LTTB(ns),MinMaxLTTB(ns),ILTS(ns)" > $HOME_PATH/res-${DATASET}-scalability.csv
-#sed '1d' tmp5.csv >> $HOME_PATH/res-${DATASET}-scalability.csv
-#rm tmp*.csv
 cd $HOME_PATH/${DATASET}_testspace/O_10_D_0_0/vary_range
 (cut -f 2,11,12,28,35 -d "," sumResult_MinMax.csv) > tmp1.csv
 (cut -f 2,11,12,28,35 -d "," sumResult_M4.csv| paste -d, tmp1.csv -) > tmp2.csv

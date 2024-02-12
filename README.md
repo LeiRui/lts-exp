@@ -28,7 +28,7 @@ The structure of this repository is as follows:
 -   `iotdb-server-0.12.4`: Folder of the IoTDB server.
 -   `jarCode`: Folder of JAVA source codes for jars used in experiments.
 -   `jars`: Folder of jars used in experiments to write data to IoTDB and query data from IoTDB.
--   `notebook`: Folder for the Python Jupyter Notebooks for experiments on visualization efficacy.
+-   `notebook`: Folder of the Python Jupyter Notebooks for experiments on visualization efficacy.
 -   `tools`: Folder of tools to assist automated experiment scripts.
 
 ## 1. Visualization Efficacy Comparison
@@ -51,7 +51,7 @@ notebook/exp2-convergence.ipynb
 
     -   Update `prepare-all.sh` as follows:
 
-        -   Update `TRI_VISUALIZATION_EXP` as the downloaded path of the `TRI_VISUALIZATION_EXP` folder.
+        -   Update `TRI_VISUALIZATION_EXP` as the downloaded path of this `lts-exp` repository.
 
         -   Update `HOME_PATH` as an **empty** folder where you want the experiments to be executed.
 
@@ -70,7 +70,7 @@ notebook/exp2-convergence.ipynb
 
     -   Update `prepare-all.sh` as follows:
 
-        -   Update `TRI_VISUALIZATION_EXP` as the downloaded path of the `TRI_VISUALIZATION_EXP` folder.
+        -   Update `TRI_VISUALIZATION_EXP` as the downloaded path of this `lts-exp` repository.
 
         -   Update `HOME_PATH` as an **empty** folder where you want the experiments to be executed.
 
@@ -90,7 +90,7 @@ Corresponding to Figure 11 and 12.
 
     -   Update `prepare-all.sh` as follows:
 
-        -   Update `TRI_VISUALIZATION_EXP` as the downloaded path of the `TRI_VISUALIZATION_EXP` folder.
+        -   Update `TRI_VISUALIZATION_EXP` as the downloaded path of this `lts-exp` repository.
 
         -   Update `HOME_PATH` as an **empty** folder where you want the experiments to be executed.
 
@@ -110,7 +110,7 @@ Corresponding to Figure 13.
 
     -   Update `prepare-all.sh` as follows:
 
-        -   Update `TRI_VISUALIZATION_EXP` as the downloaded path of the `TRI_VISUALIZATION_EXP` folder.
+        -   Update `TRI_VISUALIZATION_EXP` as the downloaded path of this `lts-exp` repository.
 
         -   Update `HOME_PATH` as an **empty** folder where you want the experiments to be executed.
 

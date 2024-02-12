@@ -4,7 +4,7 @@
 HOME_PATH=/data/v4
 
 # dataset basic info
-DATASET=BallSpeed # BallSpeed KOB MF03 RcvTime
+DATASET=BallSpeed
 DEVICE="root.game"
 MEASUREMENT="s6"
 DATA_TYPE=long # long or double

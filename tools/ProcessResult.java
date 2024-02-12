@@ -129,12 +129,4 @@ public class ProcessResult {
       metrics_ns.put(metric, ns_or_cnt);
     }
   }
-
-//  public static void sumMetric(String metric, long op_cnt, Map<String, Long> metrics_cnt) {
-//    if (metrics_cnt.containsKey(metric)) {
-//      metrics_cnt.put(metric, op_cnt + metrics_cnt.get(metric));
-//    } else {
-//      metrics_cnt.put(metric, op_cnt);
-//    }
-//  }
 }

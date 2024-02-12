@@ -4,7 +4,7 @@
 HOME_PATH=/data/v4
 
 # dataset basic info
-DATASET=BallSpeed # BallSpeed KOB MF03 RcvTime
+DATASET=BallSpeed
 DEVICE="root.game"
 MEASUREMENT="s6"
 DATA_TYPE=long # long or double
@@ -12,7 +12,7 @@ TIMESTAMP_PRECISION=ns
 DATA_MIN_TIME=0  # in the corresponding timestamp precision
 DATA_MAX_TIME=617426057626  # in the corresponding timestamp precision
 TOTAL_POINT_NUMBER=1200000
-let TOTAL_TIME_RANGE=${DATA_MAX_TIME}-${DATA_MIN_TIME} # check what if not +1 what the difference
+let TOTAL_TIME_RANGE=${DATA_MAX_TIME}-${DATA_MIN_TIME}
 VALUE_ENCODING=PLAIN
 TIME_ENCODING=PLAIN
 COMPRESSOR=UNCOMPRESSED
@@ -60,16 +60,6 @@ $HOME_PATH/tool.sh write_convex_hull true ../../iotdb-engine-example.properties 
 
 cp ../../iotdb-engine-example.properties iotdb-engine-USE.properties
 
-## properties for cpv
-#$HOME_PATH/tool.sh enable_CPV true ../../iotdb-engine-example.properties
-#$HOME_PATH/tool.sh enableMinMaxLSM false ../../iotdb-engine-example.properties
-#cp ../../iotdb-engine-example.properties iotdb-engine-enableCPV.properties
-
-## properties for minmax_lsm
-#$HOME_PATH/tool.sh enable_CPV true ../../iotdb-engine-example.properties
-#$HOME_PATH/tool.sh enableMinMaxLSM true ../../iotdb-engine-example.properties
-#cp ../../iotdb-engine-example.properties iotdb-engine-enableMinMaxLSM.properties
-
 # [write data]
 # if already written, this will be omitted automatically
 echo "Writing data"
@@ -98,7 +88,6 @@ mkdir ablation
 pos=0
 # "ILTS"1 "ILTS"2 "ILTS"3 "ILTS"4 "ILTS"5 "M4"6 "LTTB"7 "MinMaxLTTB"8 "MinMax"9
 approachArray=("ILTS" "ILTS" "ILTS" "ILTS" "ILTS" "M4" "LTTB" "MinMaxLTTB" "MinMax"); # large data, no UDF, too slow
-# mac/moc/cpv/minmax/lttb/minmax_lsm
 for approach in ${approachArray[@]};
 do
 echo "[[[[[[[[[[[[[$approach]]]]]]]]]]]]]"
@@ -155,15 +144,7 @@ else
   : # do nothing
 fi
 
-#if [ $approach == "minmax_lsm" ]
-#then
-#  $HOME_PATH/tool.sh enable_tri ${approach} $HOME_PATH/iotdb-server-0.12.4/conf/iotdb-engine.properties
-#else
-#  cp ../../iotdb-engine-enableCPV.properties $HOME_PATH/iotdb-server-0.12.4/conf/iotdb-engine.properties
-#fi
-
 i=1
-# 控制m是4的整数倍
 for m in 320 360 400 440 480 520 560 600 640
 do
   echo "[[[[[[[[[[[[[m=$m]]]]]]]]]]]]]"
@@ -193,7 +174,6 @@ done
 done;
 
 # "ILTS"1 "ILTS"2 "ILTS"3 "ILTS"4 "ILTS"5 "M4"6 "LTTB"7 "MinMaxLTTB"8 "MinMax"9
-# 注意要改编号还有csv文件名！
 # total,At,Bt,ChunkN,PointN
 cd $HOME_PATH/${DATASET}_testspace/O_10_D_0_0/ablation
 (cut -f 2,11,12,28,35 -d "," sumResult_MinMax_9.csv) > tmp1.csv
