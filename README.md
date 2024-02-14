@@ -98,7 +98,7 @@ Corresponding to Figure 11 and 12.
 
 2. Enter the folder at `HOME_PATH`, and run experiments using `nohup ./run-HouseTwenty_TEST-ablation-exp.sh 2>&1 &`. The running logs are saved in nohup.out, which can be checked by the command: `tail nohup.out`.
 
-3. When the experiment script finishes running ("ALL FINISHED!" appears in nohup.out), the corresponding experimental results are in `HOME_PATH/res-HouseTwenty_TEST-ablation.csv`. In the result csv, counting from 1, the 3~7 columns are the results of MinMax, the 8~12 columns are the results of M4, the 13~17 columns are the results of LTTB, the 18~22 columns are the results of MinMaxLTTB, the 23~27 columns are the results of ILTS1, the 28~32 columns are the results of ILTS2, the 33~37 columns are the results of ILTS3, the 43~47 columns are the results of ILTS4.
+3. When the experiment script finishes running ("ALL FINISHED!" appears in nohup.out), the corresponding experimental results are in `HOME_PATH/res-HouseTwenty_TEST-ablation.csv`. In the result csv, counting from 1, the 3\~7 columns are the results of MinMax, the 8\~12 columns are the results of M4, the 13\~17 columns are the results of LTTB, the 18\~22 columns are the results of MinMaxLTTB, the 23\~27 columns are the results of ILTS1, the 28\~32 columns are the results of ILTS2, the 33\~37 columns are the results of ILTS3, the 43\~47 columns are the results of ILTS4.
 
 ## 4. Overhead Evaluation
 
