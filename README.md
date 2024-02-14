@@ -59,7 +59,7 @@ notebook/exp2-convergence.ipynb
 
 2. Enter the folder at `HOME_PATH`, and run experiments using `nohup ./run-[datasetName]_TEST-efficiency-exp.sh 2>&1 &`, where `[datasetName]` is `FreezerRegularTrain`/`HouseTwenty`/`Lightning7`/`Mallat`/`OliveOil`/`Wine`. The running logs are saved in nohup.out, which can be checked by the command: `tail nohup.out`.
 
-3. When the experiment script finishes running ("ALL FINISHED!" appears in nohup.out), the corresponding experimental results are in `HOME_PATH/res-[datasetName]_TEST-efficiency.csv`.
+3. When the experiment script finishes running ("ALL FINISHED!" appears in nohup.out), the corresponding experimental results are in `HOME_PATH/res-[datasetName]_TEST-efficiency.csv`. In the result csv, counting from 1, the No.3 column is the query latency of MinMax, the No.8 column is the query latency of M4, the No.13 column is the query latency of LTTB, the No.18 column is the query latency of MinMaxLTTB, the No.23 column is the query latency of ILTS.
 
 
 ### Figure 9: Vary the number of input points n
@@ -78,7 +78,7 @@ notebook/exp2-convergence.ipynb
 
 2. Enter the folder at `HOME_PATH`, and run experiments using `nohup ./run-[datasetName]_TEST-scalability-exp.sh 2>&1 &`, where `[datasetName]` is `FreezerRegularTrain`/`HouseTwenty`/`Lightning7`/`Mallat`/`OliveOil`/`Wine`. The running logs are saved in nohup.out, which can be checked by the command: `tail nohup.out`.
 
-3. When the experiment script finishes running ("ALL FINISHED!" appears in nohup.out), the corresponding experimental results are in `HOME_PATH/res-[datasetName]_TEST-scalability.csv`.
+3. When the experiment script finishes running ("ALL FINISHED!" appears in nohup.out), the corresponding experimental results are in `HOME_PATH/res-[datasetName]_TEST-scalability.csv`. In the result csv, counting from 1, the No.3 column is the query latency of MinMax, the No.8 column is the query latency of M4, the No.13 column is the query latency of LTTB, the No.18 column is the query latency of MinMaxLTTB, the No.23 column is the query latency of ILTS.
 
 ## 3. Ablation Study
 
@@ -98,7 +98,7 @@ Corresponding to Figure 11 and 12.
 
 2. Enter the folder at `HOME_PATH`, and run experiments using `nohup ./run-HouseTwenty_TEST-ablation-exp.sh 2>&1 &`. The running logs are saved in nohup.out, which can be checked by the command: `tail nohup.out`.
 
-3. When the experiment script finishes running ("ALL FINISHED!" appears in nohup.out), the corresponding experimental results are in `HOME_PATH/res-HouseTwenty_TEST-ablation.csv`.
+3. When the experiment script finishes running ("ALL FINISHED!" appears in nohup.out), the corresponding experimental results are in `HOME_PATH/res-HouseTwenty_TEST-ablation.csv`. In the result csv, counting from 1, the 3~7 columns are the results of MinMax, the 8~12 columns are the results of M4, the 13~17 columns are the results of LTTB, the 18~22 columns are the results of MinMaxLTTB, the 23~27 columns are the results of ILTS1, the 28~32 columns are the results of ILTS2, the 33~37 columns are the results of ILTS3, the 43~47 columns are the results of ILTS4.
 
 ## 4. Overhead Evaluation
 
